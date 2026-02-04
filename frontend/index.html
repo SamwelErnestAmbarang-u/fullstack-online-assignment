@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chakula Fasta | Ingia</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
+    header { background: #ff6b35; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { margin: 0; }
+    nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
+    .hero { padding: 3rem 2rem; text-align: center; background: white; }
+    .hero h2 { font-size: 2rem; }
+    .login-form { background: white; padding: 2rem; margin: 2rem auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; }
+    .login-form h2 { text-align: center; }
+    .login-form label { display: block; margin-top: 0.7rem; cursor: pointer; }
+    .login-form input { width: 100%; padding: 0.5rem; margin-top: 0.5rem; border-radius: 6px; border: 1px solid #ccc; }
+    .login-form button { margin-top: 1rem; background: #ff6b35; border: none; color: white; padding: 0.7rem 1.5rem; border-radius: 6px; cursor: pointer; font-size: 1rem; width: 100%; }
+    .login-form button:hover { background: #e85c2a; }
+    .login-form .forgot-password { display: block; text-align: right; margin-top: 0.5rem; text-decoration: none; color: #ff6b35; font-size: 0.9rem; }
+    .login-form .forgot-password:hover { text-decoration: underline; }
+    footer { background: #222; color: #ccc; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍔 Chakula Fasta</h1>
+    <nav>
+      <a href="#">Nyumbani</a>
+      <a href="#">Menyu</a>
+      <a href="#">Oda</a>
+      <a href="#">Mawasiliano</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Ingia kwenye akaunti yako</h2>
+    <p>Tumia username na password yako kuendelea.</p>
+  </section>
+
+  <section class="login-form">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username au Barua Pepe</label>
+      <input type="text" id="username" name="username" placeholder="Andika username au email" required>
+
+      <label for="password">Neno la Siri</label>
+      <input type="password" id="password" name="password" placeholder="Andika neno la siri" required>
+
+      <a href="#" class="forgot-password">Umesahau Neno la Siri?</a>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn-login">Ingia</button>
+        <a href="register.html" class="btn-register">Jisajili</a>
+      </div>      
+    </form>
+  </section>
+
+  <footer>
+    <p><strong>Mawasiliano</strong></p>
+    <p>📞 Simu: +255 712 345 678</p>
+    <p>📧 Barua Pepe: chakulafasta@gmail.com</p>
+    <p>© 2026 Chakula Fasta. Haki zote zimehifadhiwa.</p>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if(username === "" || password === ""){
+        alert('Tafadhali jaza username na neno la siri.');
+        return;
+      }
+
+      if(username === "admin" && password === "1234"){
+  localStorage.setItem("role", "admin");
+  window.location.href = "home.html";
+} else {
+  localStorage.setItem("role", "user");
+  window.location.href = "home.html"; // redirect to nyumbani
+}
+    });
+  </script>
+</body>
+</html>
+
+
+
